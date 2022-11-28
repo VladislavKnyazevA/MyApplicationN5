@@ -3,13 +3,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FragmentTwo">
+    tools:context="com.vladislavknyazev.myapplicationn5.FragmentTwo">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:text="Данная программа-калькулятор предназначена для рассчета математических операций. С ее помощью вы можте произвести расчет двух чисел с помощью таких операций как: сложение, вычитание, деление, умножение, корень из числа, дробь из числа."
-        android:textSize="24sp" />
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/btnBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|center_vertical"
+        android:text="Back" />
 
 </FrameLayout>

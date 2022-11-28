@@ -1,8 +1,14 @@
-package com.vladislavknyazev.myapplicationn4;
+package com.vladislavknyazev.myapplicationn5;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.NavDirections;
+import androidx.navigation.Navigation;
+import androidx.navigation.fragment.NavHostFragment;
 
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -12,6 +18,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.vladislavknyazev.myapplicationn4.R;
+
+import java.util.zip.Inflater;
 
 public class FragmentOne extends Fragment implements View.OnClickListener {
 
@@ -32,6 +42,7 @@ public class FragmentOne extends Fragment implements View.OnClickListener {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         etNum1 = (EditText) inflater.inflate(R.layout.fragment_one, container, false).findViewById(R.id.etNum1);
         etNum2 = (EditText) inflater.inflate(R.layout.fragment_one, container, false).findViewById(R.id.etNum2);
 
@@ -50,8 +61,24 @@ public class FragmentOne extends Fragment implements View.OnClickListener {
         btnDiv.setOnClickListener(this);
         btnRad.setOnClickListener(this);
         btnFract.setOnClickListener(this);
+
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_one, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        NavController navController = Navigation.findNavController(view);
+        Button button = view.findViewById(R.id.btnNext);
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                navController.navigate(R.id.action_fragmentOne_to_fragmentTwo);
+            }
+        });
     }
 
     @Override
